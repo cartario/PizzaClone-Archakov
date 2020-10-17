@@ -60,6 +60,7 @@ ul {
   font-size: 18px; 
   font-weight: bold;
   border: none;
+  outline: none;
   border-radius: 35px;
   background-color: #fe5f1e;
   color: white;
@@ -76,6 +77,22 @@ ul {
 .button__delimeter {
   width: 1px;
   background-color: white;
+}
+
+.button--outline {
+  font-weight: bold;
+  color: #fe5f1e;
+  background-color: white;
+  border: 1px solid #fe5f1e;  
+
+  &:hover {
+    background-color: lightgrey;
+  }
+
+  &:active {
+    color: green;
+    border-color: green;
+  }  
 }
 
 .button--cart {
@@ -104,11 +121,7 @@ ul {
   padding: 15px 30px;
   font-weight: bold;
   border-radius: 25px;
-  background-color: #e5e5e5;
-
-  &:hover{
-    background-color: #d1cccc;
-  }
+  background-color: #e5e5e5;  
 
   &:active {
     background-color: orange;

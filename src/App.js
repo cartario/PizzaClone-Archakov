@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Pizza = () => {  
-
+const Pizza = ({outline}) => {  
+  
   return (
     <li className="pizza">
       <img width="250" alt="pizza-img" src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"/>
@@ -21,11 +21,32 @@ const Pizza = () => {
       </div>
       <div className="pizza__footer">
         <p className="pizza__price">от 395 Р.</p>
-        <button className="button">
+        <button className={outline ? 'button button--outline' : 'button'}>
           Добавить
         </button>
       </div>
     </li>
+  );
+};
+
+function Categories () {
+  const items = ['Все', 'Мясные','Вегетарианская','Гриль','Острые','Закрытые'];
+  const [active, setActive] = React.useState('Все');
+
+  const handleClick = (e) => {
+    const target = e.target.textContent;
+    setActive(target); 
+  }; 
+  
+  return (
+  <ul className="filter-group__list">
+    {items&&items
+    .map((item)=>
+    <li 
+   
+    onClick={handleClick}
+    className={`filter-group__item ${active===item ? ' filter-group__item--active': ''}`} key={item}>{item}</li>)}    
+  </ul>
   );
 };
 
@@ -72,26 +93,7 @@ function App() {
         <main className="main">
           <div className="container">
             <div className="filter-group">
-              <ul className="filter-group__list">              
-                <li className="filter-group__item filter-group__item--active">
-                  Все
-                </li>
-                <li className="filter-group__item">
-                  Мясные
-                </li>
-                <li className="filter-group__item">
-                  Вегетарианская
-                </li>
-                <li className="filter-group__item">
-                  Гриль
-                </li>
-                <li className="filter-group__item">
-                  Острые
-                </li>
-                <li className="filter-group__item">
-                  Закрытые
-                </li>
-              </ul>
+              <Categories />
               <div className="filter-group__sort sort">
                 <div className="sort__label">
                   <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
