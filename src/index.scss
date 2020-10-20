@@ -140,6 +140,9 @@ ul {
 .sort__label {
   & svg {
     margin: 0 10px;
+    &.rotated{
+      transform: rotate(180deg);
+    }
   }
   & span {
     color: #fe5f1e;

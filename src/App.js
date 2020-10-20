@@ -1,65 +1,9 @@
 import React from 'react';
-
-const Pizza = ({outline}) => {  
-  
-  return (
-    <li className="pizza">
-      <img width="250" alt="pizza-img" src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"/>
-      <h3>Чизбургер-пицца</h3>
-      <div className="pizza__options options">
-
-        <ul className="options__types">
-          <li className="options__type options__button options__button--active">тонкое</li>
-          <li className="options__type options__button">традиционное</li>
-        </ul>
-        <ul className="options__sizes">
-          <li className="options__size options__button">26 см.</li>
-          <li className="options__size options__button options__button--active">30 см.</li>
-          <li className="options__size options__button">40 см.</li>
-        </ul>
-
-      </div>
-      <div className="pizza__footer">
-        <p className="pizza__price">от 395 Р.</p>
-        <button className={outline ? 'button button--outline' : 'button'}>
-          Добавить
-        </button>
-      </div>
-    </li>
-  );
-};
-
-function Categories () {
-  const items = ['Все', 'Мясные','Вегетарианская','Гриль','Острые','Закрытые'];
-  const [active, setActive] = React.useState('Все');
-
-  const handleClick = (e) => {
-    const target = e.target.textContent;
-    setActive(target); 
-  }; 
-  
-  return (
-  <ul className="filter-group__list">
-    {items&&items
-    .map((item)=>
-    <li 
-   
-    onClick={handleClick}
-    className={`filter-group__item ${active===item ? ' filter-group__item--active': ''}`} key={item}>{item}</li>)}    
-  </ul>
-  );
-};
+import Pizza from './components/pizza';
+import Categories from './components/categories';
+import Sort from './components/sort';
 
 function App() {
-  const [visible, setVisible] = React.useState(false);
-
-  const handlerPopup = () => {
-    if(visible){
-      setVisible(false);
-    } else {
-      setVisible(true);
-    }    
-  }
 
   return (
     <div className="App">
@@ -94,23 +38,7 @@ function App() {
           <div className="container">
             <div className="filter-group">
               <Categories />
-              <div className="filter-group__sort sort">
-                <div className="sort__label">
-                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 5C10 5.16927 9.93815 5.31576 9.81445 5.43945C9.69075 5.56315 9.54427 5.625 9.375 5.625H0.625C0.455729 5.625 0.309245 5.56315 0.185547 5.43945C0.061849 5.31576 0 5.16927 0 5C0 4.83073 0.061849 4.68424 0.185547 4.56055L4.56055 0.185547C4.68424 0.061849 4.83073 0 5 0C5.16927 0 5.31576 0.061849 5.43945 0.185547L9.81445 4.56055C9.93815 4.68424 10 4.83073 10 5Z" fill="#2C2C2C"></path>
-                  </svg>
-                  <b>Сортировка по: </b><span onClick={handlerPopup}>популярности</span>
-                </div>
-
-                {visible &&
-                  <ul className="sort__popup">
-                    <li className="sort__popup--active">популярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li>
-                  </ul>
-                }           
-                
-              </div>
+              <Sort />
             </div>
             <section className="content-group">
               <h2>Все пиццы</h2>
