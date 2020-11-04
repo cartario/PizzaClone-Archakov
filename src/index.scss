@@ -39,11 +39,16 @@ ul {
 }
 
 .header {  
-  border-bottom: 1px dashed grey;  
+  border-bottom: 1px dashed grey;
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }  
 }
 
 .header__logo {
-  display: flex;
+  display: flex;  
 
   & h1 {
     margin: 0;
@@ -51,7 +56,7 @@ ul {
 
   & p {
     margin: 0;
-  }
+  }  
 }
 
 .button {
@@ -98,11 +103,11 @@ ul {
 .button--cart {
   display: flex;
   justify-content: space-between;
-  text-decoration: none;  
-}
-
-.main {
-  min-height: 300px;
+  text-decoration: none;
+  
+  span {
+    color: white;
+  }  
 }
 
 .filter-group {
@@ -202,6 +207,7 @@ ul {
 .options__button {
   padding: 10px;  
   border-radius: 10px;
+  
 }
 
 .options__button--active {
@@ -212,6 +218,11 @@ ul {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
+}
+
+.disabled {
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 .pizza__footer {
