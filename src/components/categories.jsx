@@ -1,13 +1,17 @@
 import React from 'react';
+import {useDispatch, connect} from 'react-redux';
+import {ActionCreators} from '../store/filters/actions';
 
 const items = ['Все', 'Мясные','Вегетарианская','Гриль','Острые','Закрытые'];
 
-function Categories () {  
-  const [active, setActive] = React.useState('Все');
+function Categories ({active, dispatch}) {  
+  // const [active, setActive] = React.useState('Все');
+
 
   const handleClick = (e) => {
     const target = e.target.textContent;
-    setActive(target); 
+    // setActive(target); 
+    dispatch(ActionCreators.setCategory(target));
   }; 
   
   return (
@@ -22,4 +26,8 @@ function Categories () {
   );
 };
 
-export default Categories;
+const mapStateToProps = (state) => ({
+  active: state.filters.category, 
+})
+
+export default connect(mapStateToProps)(Categories);

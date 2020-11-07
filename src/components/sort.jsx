@@ -1,15 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {ActionCreators} from '../store/filters/actions';
 
 const items = ['популярности','цене', 'алфавиту'];
 
-const Sort = () => {
+const Sort = ({activeItem, dispatch}) => {
   const [visible, setVisible] = React.useState(false);
-  const [activeItem, setActiveItem] = React.useState(items[0]);
+  // const [activeItem, setActiveItem] = React.useState(items[0]);
   const sortRef = React.useRef();
 
   const handleClickItem = (e) => {
     const target = e.target.textContent;
-    setActiveItem(target)
+    // setActiveItem(target);
+    dispatch(ActionCreators.setSorted(target));
+    setVisible(!visible);
   }
 
   const togglePopup = () => {
@@ -47,4 +51,8 @@ const Sort = () => {
   )
 };
 
-export default Sort;
+const mapStateToProps = (state) => ({
+  activeItem: state.filters.sortedBy,
+})
+
+export default connect(mapStateToProps)(Sort);

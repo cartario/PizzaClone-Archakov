@@ -1,17 +1,16 @@
 import { ActionCreators } from './actions';
 
 export const Operations = {
-  fetchPizzas: () => (dispatch) => {
-    dispatch(ActionCreators.isLoaded(true));
+  fetchPizzas: () => (dispatch) => {    
 
     fetch('http://localhost:3000/db.json')
       .then((res) => res.json())
       .then((json) => {
         dispatch(ActionCreators.setPizzas(json.pizzas));
-        dispatch(ActionCreators.isLoaded(false));
+        dispatch(ActionCreators.isLoaded(true));
       })
       .catch((err) => {        
-        dispatch(ActionCreators.isLoaded(false));
+        
       });
   },
 };
