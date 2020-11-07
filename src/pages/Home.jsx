@@ -1,11 +1,13 @@
-import React, { memo, useMemo } from 'react';
+import React from 'react';
 import Pizza from '../components/pizza';
 import Categories from '../components/categories';
 import Sort from '../components/sort';
-import {connect } from 'react-redux';
+import {useSelector} from 'react-redux';
 import Preloader from '../components/Preloader';
 
-const Home = ({isLoaded, items}) => {
+const Home = () => {  
+  const isLoaded = useSelector((state)=>state.pizzas.isLoaded);
+  const items = useSelector((state)=>state.pizzas.items);
 
   if(!isLoaded){
     return <Preloader />
@@ -27,9 +29,4 @@ const Home = ({isLoaded, items}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  items: state.pizzas.items,
-  isLoaded: state.pizzas.isLoaded,
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;

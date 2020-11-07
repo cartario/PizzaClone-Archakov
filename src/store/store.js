@@ -13,6 +13,4 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-store.dispatch(Operations.fetchPizzas());
-
 export default store;

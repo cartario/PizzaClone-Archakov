@@ -1,17 +1,20 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreators} from '../store/filters/actions';
 
 const items = ['популярности','цене', 'алфавиту'];
 
-const Sort = ({activeItem, dispatch}) => {
+const Sort = () => {
+  
+  const dispatch = useDispatch();
+  const activeItem = useSelector((state)=>state.filters.sortedBy);
+
   const [visible, setVisible] = React.useState(false);
-  // const [activeItem, setActiveItem] = React.useState(items[0]);
+  
   const sortRef = React.useRef();
 
   const handleClickItem = (e) => {
-    const target = e.target.textContent;
-    // setActiveItem(target);
+    const target = e.target.textContent;    
     dispatch(ActionCreators.setSorted(target));
     setVisible(!visible);
   }
@@ -51,8 +54,4 @@ const Sort = ({activeItem, dispatch}) => {
   )
 };
 
-const mapStateToProps = (state) => ({
-  activeItem: state.filters.sortedBy,
-})
-
-export default connect(mapStateToProps)(Sort);
+export default Sort;
