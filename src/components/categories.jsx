@@ -12,8 +12,8 @@ function Categories () {
     const target = e.target.textContent;
     setActive(target); 
     dispatch(ActionCreators.setCategory(target));
-  }; 
-  
+  };
+
   return (
   <ul className="filter-group__list">
     {items&&items
@@ -26,4 +26,4 @@ function Categories () {
   );
 };
 
-export default Categories;
+export default React.memo(Categories);

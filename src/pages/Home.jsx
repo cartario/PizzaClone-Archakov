@@ -12,7 +12,7 @@ const Home = () => {
   if(!isLoaded){
     return <Preloader />
   }
-
+console.log('render')
   return (
     <div className="container">
       <div className="filter-group">
@@ -29,4 +29,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);

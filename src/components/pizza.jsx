@@ -67,4 +67,4 @@ const Pizza = ({ outline, name, types, sizes, price, imgUrl }) => {
   );
 };
 
-export default Pizza;
+export default React.memo(Pizza);

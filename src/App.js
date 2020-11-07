@@ -9,9 +9,11 @@ import {useDispatch} from 'react-redux';
 function App() {
   const dispatch = useDispatch();
 
+  // window.test = ()=>dispatch(Operations.fetchPizzas());
+
   React.useEffect(()=>{
     dispatch(Operations.fetchPizzas());
-  });
+  },[]);
 
   return (
     <div className="App">
