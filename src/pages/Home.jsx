@@ -2,17 +2,25 @@ import React from 'react';
 import Pizza from '../components/pizza';
 import Categories from '../components/categories';
 import Sort from '../components/sort';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Preloader from '../components/Preloader';
+import {Operations} from '../store/pizzas/operations';
 
 const Home = () => {  
   const isLoaded = useSelector((state)=>state.pizzas.isLoaded);
   const items = useSelector((state)=>state.pizzas.items);
+  const {category, sortedBy} = useSelector((state)=>state.filters);
+
+  const dispatch = useDispatch();
+
+  React.useEffect(()=>{
+    dispatch(Operations.fetchPizzas(category, sortedBy));
+  },[category, sortedBy]);
 
   if(!isLoaded){
     return <Preloader />
   }
-console.log('render')
+
   return (
     <div className="container">
       <div className="filter-group">

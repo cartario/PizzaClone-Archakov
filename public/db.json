@@ -6,7 +6,8 @@
       "types": [1],
       "sizes": [30],
       "price": 395,
-      "tag": ["meat", "veg"],
+      "tag": "meat",
+      "rating": 10,
       "imgUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"      
     },
     {
@@ -15,7 +16,8 @@
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 550,
-      "tag": ["gril", "spicy"],
+      "tag": "gril",
+      "rating": 3,
       "imgUrl": "https://cdn.dodostatic.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_584x584.jpeg"       
     },
     {
@@ -24,7 +26,8 @@
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 250,
-      "tag": ["close"],
+      "tag": "close",
+      "rating": 7,
       "imgUrl": "https://cdn.dodostatic.net/static/Img/Products/6289691b5edd41b6ad280fdc340c4e59_584x584.jpeg"       
     }
   ]

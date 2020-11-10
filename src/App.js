@@ -3,18 +3,8 @@ import {Route} from 'react-router-dom';
 import Header from './components/header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import {Operations} from './store/pizzas/operations';
-import {useDispatch} from 'react-redux';
 
 function App() {
-  const dispatch = useDispatch();
-
-  // window.test = ()=>dispatch(Operations.fetchPizzas());
-
-  React.useEffect(()=>{
-    dispatch(Operations.fetchPizzas());
-  },[]);
-
   return (
     <div className="App">
       <div className="wrapper">
