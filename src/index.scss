@@ -182,7 +182,7 @@ ul {
 }
 .pizzas {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 
 }
@@ -190,6 +190,7 @@ ul {
 .pizza {
   text-align: center;
   margin-bottom: 70px;
+  margin-right: 30px;
 }
 
 .options {

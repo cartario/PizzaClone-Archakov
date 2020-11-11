@@ -29,6 +29,16 @@
       "tag": "close",
       "rating": 7,
       "imgUrl": "https://cdn.dodostatic.net/static/Img/Products/6289691b5edd41b6ad280fdc340c4e59_584x584.jpeg"       
+    },
+    {
+      "id": 4,
+      "name": "Супер-Цезарь-пицца",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 254,
+      "tag": "meat",
+      "rating": 3,
+      "imgUrl": "https://cdn.dodostatic.net/static/Img/Products/6289691b5edd41b6ad280fdc340c4e59_584x584.jpeg"       
     }
   ]
 }
