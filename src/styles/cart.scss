@@ -1,0 +1,163 @@
+
+.container--cart{
+  width: 60%;
+  margin: 60px auto;
+}
+
+.cart__top {
+    display: flex;
+    justify-content: space-between;
+  h2{
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      margin: 10px;
+    }
+    path{
+      stroke: black;
+      stroke-width: 1.5;
+    }
+  }    
+}
+
+.cart__clear{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+  }
+  path{
+    stroke: rgb(172, 172, 172);
+    stroke-width: 1.6;
+  }
+  span{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(172, 172, 172);
+  }
+
+  &:hover{
+    transform: scale(1.1);    
+  }
+  &:active{
+    opacity: 0.5;
+  }
+}
+
+.cart__item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+
+  &:hover{
+    border-bottom: 2px solid orange;
+  }
+}
+
+.cart__item-img{
+  width: 60px;
+  height: 60px;
+
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.cart__item-info{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 40%;
+  h2{
+    margin: 0;
+    font-size: 18px;
+  }
+  span{
+    font-size: 14px;
+    color: rgb(172, 172, 172);
+  }
+}
+
+.cart__item-count{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10%;
+  font-weight: bold;
+}
+
+.cart__item-btn{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid orange;
+  border-radius: 50%;
+  color: orange;
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover{
+    background: black;
+    color: white;
+    transform: scale(1.1);
+  }
+  &:active{
+    border-color: darken(orange, 40);    
+  }
+}
+
+.cart__item-btn--remove{
+  border-color: grey;
+  color: grey;
+  transform: rotate(45deg);
+  &:hover{
+    color: grey;    
+    background: none;
+    opacity: 0.5;
+    transform: rotate(45deg);
+  }
+}
+
+.cart__item-price{
+  width: 10%;
+  font-weight: bold;
+}
+
+.cart__result{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.cart__result-money{
+  b{
+    color: orange;
+  }
+}
+
+.cart__controls{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__controls-btn{
+  min-width: 100px;
+  cursor: pointer;
+  svg{
+    margin-right: 5px;
+    path{
+      stroke: orange;
+      stroke-width: 1.5;      
+    }
+  }
+}

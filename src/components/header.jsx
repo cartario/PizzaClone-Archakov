@@ -16,7 +16,7 @@ const Header = (props) => {
           </div>
         </Link>
         <div className="header__cart">
-          <Link to="cart" className="button button--cart">
+          <Link to="/cart" className="button button--cart">
             <span>520Р</span>
             <div className="button__delimeter">
             </div>
