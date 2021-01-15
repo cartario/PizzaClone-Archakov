@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import {ActionCreators} from '../store/cart/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 const availableTypes = ['тонкое', 'традиционное'];
 const availableSizes = [26, 30, 40];
 
-const Pizza = ({ outline, name, types, sizes, price, imgUrl }) => {
+const Pizza = ({ outline, name, types, sizes, price, imgUrl ,id}) => {
   const [active, setActive] = useState({ type: types[0], size: availableSizes.indexOf(sizes[0]) });
+  const dispatch = useDispatch();
+  const items = useSelector(({cart})=>cart.items[id])||"";
+  const count = items&&items.length;   
 
   const handleClickType = (i) => {
     setActive({ ...active, type: i });
@@ -14,6 +19,11 @@ const Pizza = ({ outline, name, types, sizes, price, imgUrl }) => {
   const handleClickSize = (i) => {
     setActive({ ...active, size: i });
   };
+
+  const handleAddClick = () => {    
+    const obj = {id, name, active, price};
+    dispatch(ActionCreators.addPizzaToCart(obj))
+  }
 
   return (
     <li className="pizza">
@@ -61,7 +71,7 @@ const Pizza = ({ outline, name, types, sizes, price, imgUrl }) => {
       </div>
       <div className="pizza__footer">
         <p className="pizza__price">от {price} Р.</p>
-        <button className={outline ? 'button button--outline' : 'button'}>Добавить</button>
+        <button className={outline ? 'button button--outline' : 'button'} onClick={handleAddClick}>Добавить {count}</button>
       </div>
     </li>
   );
